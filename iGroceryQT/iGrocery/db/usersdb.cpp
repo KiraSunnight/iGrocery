@@ -60,15 +60,15 @@ User *UsersDB::getUserByLogin(QString login)
     return it == mUsers.end()? nullptr : it;
 }
 
-const UsersDB UsersDB::createInstance()
+UsersDB* UsersDB::createInstance()
 {
-    UsersDB db;
+    UsersDB *db = new UsersDB();
 
     if (QFile().exists(UsersDB::FILE_NAME)) {
         QFile f(UsersDB::FILE_NAME);
         f.open(QIODevice::ReadOnly);
         QDataStream stream(&f);
-        db.load(stream);
+        db->load(stream);
         f.close();
     }
 

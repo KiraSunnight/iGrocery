@@ -25,7 +25,7 @@ public:
     QVector<User*> getUsersByType(UserType userType);
     User* getUserByLogin(QString login);
 
-    static const UsersDB createInstance();
+    static UsersDB* createInstance();
     static void saveInstance(const UsersDB &instance);
 };
 
