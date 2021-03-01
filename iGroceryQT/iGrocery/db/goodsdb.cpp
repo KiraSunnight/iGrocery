@@ -12,19 +12,19 @@ void GoodsDB::save(QDataStream &stream) const
     stream << mGoods;
 }
 
-QVector<Good> GoodsDB::goods() const
+QVector<Good*> GoodsDB::goods() const
 {
     return mGoods;
 }
 
 void GoodsDB::addGood(Good good)
 {
-    mGoods.push_back(good);
+    mGoods.push_back(&good);
 }
 
-void GoodsDB::removeGood(const Good &good)
+void GoodsDB::removeGood(Good &good)
 {
-    mGoods.removeAll(good);
+    mGoods.removeAll(&good);
 }
 
 GoodsDB* GoodsDB::createInstance()

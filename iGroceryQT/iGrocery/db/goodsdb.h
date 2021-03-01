@@ -11,7 +11,7 @@ class GoodsDB
 {
 private:
     static const QString FILE_NAME;
-    QVector<Good> mGoods;
+    QVector<Good*> mGoods;
 
     GoodsDB() = default;
 
@@ -19,9 +19,9 @@ public:
     void load(QDataStream &stream);
     void save(QDataStream &stream) const;
 
-    QVector<Good> goods() const;
+    QVector<Good*> goods() const;
     void addGood(Good good);
-    void removeGood(const Good &good);
+    void removeGood(Good &good);
 
     static GoodsDB* createInstance();
     static void saveInstance(const GoodsDB &instance);
