@@ -9,22 +9,28 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    administratorwindow.cpp \
     db/goodsdb.cpp \
     db/usersdb.cpp \
     entities/good.cpp \
     entities/user.cpp \
     main.cpp \
-    loginwindow.cpp
+    loginwindow.cpp \
+    storewindow.cpp
 
 HEADERS += \
+    administratorwindow.h \
     db/goodsdb.h \
     db/usersdb.h \
     entities/good.h \
     entities/user.h \
-    loginwindow.h
+    loginwindow.h \
+    storewindow.h
 
 FORMS += \
-    loginwindow.ui
+    administratorwindow.ui \
+    loginwindow.ui \
+    storewindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
