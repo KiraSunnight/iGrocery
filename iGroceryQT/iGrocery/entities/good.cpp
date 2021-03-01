@@ -1,5 +1,23 @@
 #include "good.h"
 
+bool operator==(const Good &l, const Good &r)
+{
+    return l.mName == r.mName && l.mAmountInStorage == r.mAmountInStorage
+            && l.mShelfNumber == r.mShelfNumber && l.mProviderName == r.mShelfNumber;
+}
+
+QDataStream& operator<<(QDataStream &stream, const Good &good)
+{
+    stream << good.mName << good.mAmountInStorage << good.mShelfNumber << good.mProviderName;
+    return stream;
+}
+
+QDataStream& operator>>(QDataStream &stream, Good &good)
+{
+    stream >> good.mName >> good.mAmountInStorage >> good.mShelfNumber >> good.mProviderName;
+    return stream;
+}
+
 Good::Good(QString name, int amountInStorage, int shelfNumber, QString providerName)
     : mName(name), mAmountInStorage(amountInStorage), mShelfNumber(shelfNumber), mProviderName(providerName)
 {

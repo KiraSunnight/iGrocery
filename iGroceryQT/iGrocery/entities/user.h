@@ -39,22 +39,4 @@ public:
     friend QDataStream& operator>>(QDataStream &stream, User &usr);
 };
 
-bool operator==(const User &l, const User &r)
-{
-    return l.mName == r.mName && l.mSurname == r.mSurname && l.mPatronymic == r.mPatronymic
-            && l.mLogin == r.mLogin && l.mPassword == r.mPassword && l.mUserType == r.mUserType;
-}
-
-QDataStream& operator<<(QDataStream &stream, const User &usr)
-{
-    stream << usr.mName << usr.mSurname << usr.mPatronymic << usr.mLogin << usr.mPassword << usr.mUserType;
-    return stream;
-}
-
-QDataStream& operator>>(QDataStream &stream, User &usr)
-{
-    stream >> usr.mName >> usr.mSurname >> usr.mPatronymic >> usr.mLogin >> usr.mPassword >> usr.mUserType;
-    return stream;
-}
-
 #endif // USER_H
