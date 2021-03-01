@@ -80,6 +80,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="editGood">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="text">
          <string>Редактировать товар</string>
         </property>
@@ -87,8 +90,18 @@
       </item>
       <item>
        <widget class="QPushButton" name="removeGood">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Удалить товар</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="info">
+        <property name="text">
+         <string>Справка</string>
         </property>
        </widget>
       </item>
@@ -98,5 +111,59 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>addGood</sender>
+   <signal>clicked()</signal>
+   <receiver>StoreWindow</receiver>
+   <slot>onAddGoodClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>88</x>
+     <y>584</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>119</x>
+     <y>600</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>editGood</sender>
+   <signal>clicked()</signal>
+   <receiver>StoreWindow</receiver>
+   <slot>onEditGoodClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>591</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>290</x>
+     <y>601</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeGood</sender>
+   <signal>clicked()</signal>
+   <receiver>StoreWindow</receiver>
+   <slot>onRemoveGoodClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>443</x>
+     <y>583</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>599</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onAddGoodClicked()</slot>
+  <slot>onEditGoodClicked()</slot>
+  <slot>onRemoveGoodClicked()</slot>
+ </slots>
 </ui>

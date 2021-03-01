@@ -3,7 +3,7 @@
 bool operator==(const Good &l, const Good &r)
 {
     return l.mName == r.mName && l.mAmountInStorage == r.mAmountInStorage
-            && l.mShelfNumber == r.mShelfNumber && l.mProviderName == r.mShelfNumber;
+            && l.mShelfNumber == r.mShelfNumber && l.mProviderName == r.mProviderName;
 }
 
 QDataStream& operator<<(QDataStream &stream, const Good &good)

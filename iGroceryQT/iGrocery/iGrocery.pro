@@ -19,6 +19,7 @@ SOURCES += \
     loginwindow.cpp \
     storewindow.cpp \
     userdialog.cpp \
+    viewmodels/goodsviewmodel.cpp \
     viewmodels/usersviewmodel.cpp
 
 HEADERS += \
@@ -31,6 +32,7 @@ HEADERS += \
     loginwindow.h \
     storewindow.h \
     userdialog.h \
+    viewmodels/goodsviewmodel.h \
     viewmodels/usersviewmodel.h
 
 FORMS += \
