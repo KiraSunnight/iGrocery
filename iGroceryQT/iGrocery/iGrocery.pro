@@ -18,7 +18,8 @@ SOURCES += \
     main.cpp \
     loginwindow.cpp \
     storewindow.cpp \
-    userdialog.cpp
+    userdialog.cpp \
+    viewmodels/usersviewmodel.cpp
 
 HEADERS += \
     administratorwindow.h \
@@ -29,7 +30,8 @@ HEADERS += \
     gooddialog.h \
     loginwindow.h \
     storewindow.h \
-    userdialog.h
+    userdialog.h \
+    viewmodels/usersviewmodel.h
 
 FORMS += \
     administratorwindow.ui \
