@@ -9,12 +9,14 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    db/usersdb.cpp \
     entities/good.cpp \
     entities/user.cpp \
     main.cpp \
     loginwindow.cpp
 
 HEADERS += \
+    db/usersdb.h \
     entities/good.h \
     entities/user.h \
     loginwindow.h
