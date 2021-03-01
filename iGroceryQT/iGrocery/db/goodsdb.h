@@ -20,8 +20,10 @@ public:
     void save(QDataStream &stream) const;
 
     QVector<Good> goods() const;
+    void addGood(Good good);
+    void removeGood(const Good &good);
 
-    static const GoodsDB createInstance();
+    static GoodsDB* createInstance();
     static void saveInstance(const GoodsDB &instance);
 };
 

@@ -17,15 +17,25 @@ QVector<Good> GoodsDB::goods() const
     return mGoods;
 }
 
-const GoodsDB GoodsDB::createInstance()
+void GoodsDB::addGood(Good good)
 {
-    GoodsDB db;
+    mGoods.push_back(good);
+}
+
+void GoodsDB::removeGood(const Good &good)
+{
+    mGoods.removeAll(good);
+}
+
+GoodsDB* GoodsDB::createInstance()
+{
+    GoodsDB *db = new GoodsDB();
 
     if (QFile().exists(GoodsDB::FILE_NAME)) {
         QFile f(GoodsDB::FILE_NAME);
         f.open(QIODevice::ReadOnly);
         QDataStream stream(&f);
-        db.load(stream);
+        db->load(stream);
         f.close();
     }
 
