@@ -2,6 +2,7 @@
 #define USERDIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 #include "./entities/user.h"
 
@@ -18,9 +19,14 @@ public:
     ~UserDialog();
 
     User* getUser();
+    void setUser(User *user);
+public slots:
+    void accept();
 
 private:
     Ui::UserDialog *ui;
+
+    User *mUser = nullptr;
 };
 
 #endif // USERDIALOG_H

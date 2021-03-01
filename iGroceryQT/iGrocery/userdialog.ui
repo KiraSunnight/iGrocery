@@ -27,27 +27,27 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="mainBox">
      <property name="title">
       <string>ФИО</string>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="secondName">
         <property name="placeholderText">
          <string>Фамилия</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="firstName">
         <property name="placeholderText">
          <string>Имя</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_3">
+       <widget class="QLineEdit" name="patronymic">
         <property name="placeholderText">
          <string>Отчество</string>
         </property>
@@ -80,7 +80,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QGroupBox" name="authBox">
      <property name="title">
       <string>Данные авторизации</string>
      </property>
@@ -94,6 +94,9 @@
       </item>
       <item>
        <widget class="QLineEdit" name="password">
+        <property name="echoMode">
+         <enum>QLineEdit::PasswordEchoOnEdit</enum>
+        </property>
         <property name="placeholderText">
          <string>Пароль</string>
         </property>
