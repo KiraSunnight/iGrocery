@@ -17,10 +17,12 @@ public:
     explicit StoreWindow(QWidget *parent = nullptr);
     ~StoreWindow();
 
-    static StoreWindow* withUser(User *user);
+    StoreWindow* withUser(User *user);
 
 private:
     Ui::StoreWindow *ui;
+
+    User *mUser;
 };
 
 #endif // STOREWINDOW_H

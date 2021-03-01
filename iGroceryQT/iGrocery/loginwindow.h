@@ -23,6 +23,8 @@ public:
     ~LoginWindow();
 
     void check();
+
+public slots:
     void auth();
 
 private:

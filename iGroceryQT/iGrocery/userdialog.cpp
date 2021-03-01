@@ -45,7 +45,7 @@ void UserDialog::accept()
             {
                 throw std::runtime_error("Проверьте правильность заполнения формы!");
             }
-            mUser = new User();
+            mUser = new User(firstName, secondName, patronymic, login, password);
         }
         UserType userType = (UserType)ui->accountType->currentIndex();
         mUser->setUserType(userType);

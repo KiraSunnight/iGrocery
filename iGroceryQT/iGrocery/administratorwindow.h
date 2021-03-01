@@ -17,10 +17,12 @@ public:
     explicit AdministratorWindow(QWidget *parent = nullptr);
     ~AdministratorWindow();
 
-    static AdministratorWindow* withUser(User *user);
+    AdministratorWindow* withUser(User *user);
 
 private:
     Ui::AdministratorWindow *ui;
+
+    User *mUser;
 };
 
 #endif // ADMINISTRATORWINDOW_H

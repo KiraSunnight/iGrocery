@@ -12,3 +12,10 @@ StoreWindow::~StoreWindow()
 {
     delete ui;
 }
+
+StoreWindow *StoreWindow::withUser(User *user)
+{
+    mUser = user;
+    ui->username->setText(user->fullName());
+    return this;
+}

@@ -138,5 +138,25 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>auth</sender>
+   <signal>clicked()</signal>
+   <receiver>LoginWindow</receiver>
+   <slot>auth()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>402</x>
+     <y>91</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>540</x>
+     <y>76</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>auth()</slot>
+ </slots>
 </ui>

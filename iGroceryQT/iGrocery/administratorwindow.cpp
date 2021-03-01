@@ -12,3 +12,10 @@ AdministratorWindow::~AdministratorWindow()
 {
     delete ui;
 }
+
+AdministratorWindow *AdministratorWindow::withUser(User *user)
+{
+    mUser = user;
+    ui->username->setText(mUser->fullName());
+    return this;
+}

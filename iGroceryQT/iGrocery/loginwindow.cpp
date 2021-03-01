@@ -26,7 +26,7 @@ void LoginWindow::check()
 
     QMessageBox::information(this,
                              "Уведомление",
-                             "Вы в первый раз запускаете систему, зарегистрируйте нового пользователя."
+                             "Вы в первый раз запускаете систему, зарегистрируйте нового пользователя.\n"
                              "Данный пользователь будет выбран в качестве администратора вне зависимости "
                              "от выбранного значения поля типа аккаунта.");
 
@@ -42,11 +42,11 @@ void LoginWindow::check()
     }
 
     User *user = userDialog->getUser();
+    user->setUserType(UserType::ADMINISTRATOR);
     mUsersDB->addUser(*user);
+    UsersDB::saveInstance(*mUsersDB);
 
-    QMessageBox::information(this,
-                             "Ошибка",
-                             "Для дальнейшей работы системы требуется аккаунт администратора.");
+    QMessageBox::information(this, "Успех", "Теперь можно пользваться системой.");
 }
 
 void LoginWindow::auth()
@@ -73,14 +73,14 @@ void LoginWindow::auth()
         QMainWindow *w;
         if (user->userType() == UserType::ADMINISTRATOR)
         {
-            w = AdministratorWindow::withUser(user);
+            w = (new AdministratorWindow())->withUser(user);
         }
         else
         {
-            w = StoreWindow::withUser(user);
+            w = (new StoreWindow())->withUser(user);
         }
-        close();
         w->show();
+        close();
     }  catch (const std::runtime_error &e) {
         QMessageBox::critical(this, "Ошибка", e.what());
     }
