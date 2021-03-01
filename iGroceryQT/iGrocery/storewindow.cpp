@@ -14,7 +14,7 @@ StoreWindow::StoreWindow(QWidget *parent) :
     });
 
     connect(ui->info, &QPushButton::clicked, this, [this]() {
-        QString infoText = "Скоро закончатся:\n";
+        QString infoText;
 
         foreach (auto g, mGoodsDB->goods())
         {
@@ -22,7 +22,16 @@ StoreWindow::StoreWindow(QWidget *parent) :
             {
                 continue;
             }
-            infoText += tr("- '%1' (от '%2') - %3\n").arg(g.name()).arg(g.providerName()).arg(g.amountInStorage());
+            infoText += tr("\n- '%1' (от '%2') - %3").arg(g.name()).arg(g.providerName()).arg(g.amountInStorage());
+        }
+
+        if (infoText.length() == 0)
+        {
+            infoText = "Всех товаров в достатке";
+        }
+        else
+        {
+            infoText = tr("Скоро закончатся:%1").arg(infoText);
         }
 
         QMessageBox::information(this, "Справка", infoText);
@@ -83,23 +92,28 @@ void StoreWindow::onAddGoodClicked()
 
 void StoreWindow::onEditGoodClicked()
 {
-    int idx = ui->goodsTable->selectionModel()->selectedIndexes()[0].row();
-    Good *good = gvm->getGoodAt(idx);
-    GoodDialog *goodDialog = new GoodDialog(this);
-    goodDialog->setGood(good, mUser->userType() == UserType::MANAGER);
-
-    if (goodDialog->exec() != UserDialog::Accepted)
+    if (ui->goodsTable->selectionModel()->selectedIndexes().length() == 0)
     {
         return;
     }
+    int idx = ui->goodsTable->selectionModel()->selectedIndexes()[0].row();
+    Good *good = gvm->getGoodAt(idx);
     mGoodsDB->removeGood(*good);
-    mGoodsDB->addGood(*good);
+    GoodDialog *goodDialog = new GoodDialog(this);
+    goodDialog->setGood(good, mUser->userType() == UserType::MANAGER);
 
+    goodDialog->exec();
+
+    mGoodsDB->addGood(*good);
     emit dataChanged();
 }
 
 void StoreWindow::onRemoveGoodClicked()
 {
+    if (ui->goodsTable->selectionModel()->selectedIndexes().length() == 0)
+    {
+        return;
+    }
     int idx = ui->goodsTable->selectionModel()->selectedIndexes()[0].row();
     mGoodsDB->removeGood(*gvm->getGoodAt(idx));
     emit dataChanged();

@@ -64,6 +64,10 @@ void AdministratorWindow::on_addUser_triggered()
 
 void AdministratorWindow::on_deleteUser_triggered()
 {
+    if (ui->usersTable->selectionModel()->selectedIndexes().length() == 0)
+    {
+        return;
+    }
     int idx = ui->usersTable->selectionModel()->selectedIndexes()[0].row();
     mUsersDB->removeUser(*uvm->getUserAt(idx));
     emit dataChanged();
@@ -71,6 +75,10 @@ void AdministratorWindow::on_deleteUser_triggered()
 
 void AdministratorWindow::on_editUser_triggered()
 {
+    if (ui->usersTable->selectionModel()->selectedIndexes().length() == 0)
+    {
+        return;
+    }
     int idx = ui->usersTable->selectionModel()->selectedIndexes()[0].row();
     User *user = uvm->getUserAt(idx);
     UserDialog *userDialog = new UserDialog(this);
