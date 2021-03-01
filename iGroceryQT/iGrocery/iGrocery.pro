@@ -14,9 +14,11 @@ SOURCES += \
     db/usersdb.cpp \
     entities/good.cpp \
     entities/user.cpp \
+    gooddialog.cpp \
     main.cpp \
     loginwindow.cpp \
-    storewindow.cpp
+    storewindow.cpp \
+    userdialog.cpp
 
 HEADERS += \
     administratorwindow.h \
@@ -24,13 +26,17 @@ HEADERS += \
     db/usersdb.h \
     entities/good.h \
     entities/user.h \
+    gooddialog.h \
     loginwindow.h \
-    storewindow.h
+    storewindow.h \
+    userdialog.h
 
 FORMS += \
     administratorwindow.ui \
+    gooddialog.ui \
     loginwindow.ui \
-    storewindow.ui
+    storewindow.ui \
+    userdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
