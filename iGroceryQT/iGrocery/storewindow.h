@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "./entities/user.h"
+
 namespace Ui {
 class StoreWindow;
 }
@@ -14,6 +16,8 @@ class StoreWindow : public QMainWindow
 public:
     explicit StoreWindow(QWidget *parent = nullptr);
     ~StoreWindow();
+
+    static StoreWindow* withUser(User *user);
 
 private:
     Ui::StoreWindow *ui;

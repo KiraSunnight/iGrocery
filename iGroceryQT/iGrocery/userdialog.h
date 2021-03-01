@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "./entities/user.h"
+
 namespace Ui {
 class UserDialog;
 }
@@ -14,6 +16,8 @@ class UserDialog : public QDialog
 public:
     explicit UserDialog(QWidget *parent = nullptr);
     ~UserDialog();
+
+    User* getUser();
 
 private:
     Ui::UserDialog *ui;
