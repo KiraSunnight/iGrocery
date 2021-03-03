@@ -10,12 +10,13 @@
 class UsersDB
 {
 private:
-    static const QString FILE_NAME;
     QVector<User> mUsers;
 
     UsersDB() = default;
 
 public:
+    static const QString FILE_NAME;
+
     void load(QDataStream &stream);
     void save(QDataStream &stream) const;
 

@@ -10,12 +10,13 @@
 class GoodsDB
 {
 private:
-    static const QString FILE_NAME;
     QVector<Good> mGoods;
 
     GoodsDB() = default;
 
 public:
+    static const QString FILE_NAME;
+
     void load(QDataStream &stream);
     void save(QDataStream &stream) const;
 
