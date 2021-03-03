@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    iGrocery
+    iGrocery \
+    tests
